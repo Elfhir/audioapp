@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>AudioApp</title>
+  <meta name="author" content="name"/>
+  <meta name="description" content="Audio App"/>
+  <meta name="keywords" content="Howler,LocalForage"/>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"/>
+  <link rel="stylesheet" type="text/css" href="./styles/audioapp.css"/>
+</head>
+<body class="loading">
+
+
+
+  <div class="siteHeader">
+    <!-- This section gets pushed to the left side-->
+    <div class="siteHeader__section">
+      <div class="siteHeader__item siteHeaderLogo">
+        <div class="fa fa-inbox"></div>
+      </div>
+      <div class="siteHeader__item siteHeaderButton refresh">Refresh</div>
+      <div class="siteHeader__item siteHeaderButton">New</div>
+      <div class="siteHeader__item siteHeaderButton trash">Trash</div>
+
+      <ul class="midi-keyboard">
+        <li><span>Manufacturer: </span><span class="mk-manufacturer"></span></li>
+        <li><span>Model name: </span><span class="mk-name"></span></li>
+        <li><span>Connection: </span><span class="mk-connection"></span></li>
+        <li><span>State: </span><span class="mk-state"></span></li>
+      </ul>
+
+    </div>
+    <!-- This section gets pushed to the right side-->
+    <div class="siteHeader__section">
+      <div class="siteHeader__item siteHeaderButton">Settings</div>
+      
+    </div>
+  </div>
+
+  <div class="siteHeader">
+    <!-- This section gets pushed to the left side-->
+    <div class="siteHeader__section">
+      <div class="siteHeader__item siteHeaderLogo">
+        <div class="fa fa-inbox"></div>
+      </div>
+      <div class="siteHeader__item siteHeaderButton" data-type="sine">Sine</div>
+      <div class="siteHeader__item siteHeaderButton" data-type="square">Square</div>
+      <div class="siteHeader__item siteHeaderButton" data-type="sawtooth">Sawtooth</div>
+      <div class="siteHeader__item siteHeaderButton" data-type="triangle">Triangle</div>
+      <div class="siteHeader__item">Detune </div>
+      <div class="stepperInput">
+        <button class="button button--addOnLeft">-</button>
+        <input type="text" value="100" class="input stepperInput__input"/>
+        <button class="button button--addOnRight">+</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <section id="pianokeys">
+
+    <section class="keys-container" data-keyboard-layout="fr-fr">
+
+      <section class="white-keys keys">
+        <div data-note="a3" data-keyboard="65" class="key key-a"></div>
+
+        <div data-note="b3" data-keyboard="90" class="key key-b"></div>
+        <div data-note="c4" data-keyboard="69" class="key key-c"></div>
+        <div data-note="d4" data-keyboard="82" class="key key-d"></div>
+        <div data-note="e4" data-keyboard="84" class="key key-e"></div>
+        <div data-note="f4" data-keyboard="89" class="key key-f"></div>
+        <div data-note="g4" data-keyboard="85" class="key key-g"></div>
+        <div data-note="a4" data-keyboard="73" class="key key-a"></div>
+        <div data-note="b4" data-keyboard="79" class="key key-b"></div>
+        <div data-note="c5" data-keyboard="80" class="key key-c"></div>
+
+        <div data-note="d5" data-keyboard="87" class="key key-d"></div>
+        <div data-note="e5" data-keyboard="88" class="key key-e"></div>
+        <div data-note="f5" data-keyboard="67" class="key key-f"></div>
+        <div data-note="g5" data-keyboard="86" class="key key-g"></div>
+        <div data-note="a5" data-keyboard="66" class="key key-a"></div>
+        <div data-note="b5" data-keyboard="78" class="key key-b"></div>
+        <div data-note="c6" data-keyboard="188" class="key key-c"></div>
+        <div data-note="d6" data-keyboard="59" class="key key-d"></div>
+        <div data-note="e6" data-keyboard="58" class="key key-e"></div>
+        <div data-note="f6" data-keyboard="161" class="key key-f"></div>
+      </section>
+
+      <section class="black-keys keys">
+        <div data-note="a3-sharp" data-keyboard="50" class="key key-a-sharp"></div>
+
+        <div data-note="c4-sharp" data-keyboard="52" class="key key-c-sharp"></div>
+        <div data-note="d4-sharp" data-keyboard="53" class="key key-d-sharp"></div>
+
+        <div data-note="f4-sharp" data-keyboard="55" class="key key-f-sharp"></div>
+        <div data-note="g4-sharp" data-keyboard="56" class="key key-g-sharp"></div>
+        <div data-note="a4-sharp" data-keyboard="57" class="key key-a-sharp"></div>
+
+        <div data-note="c5-sharp" data-keyboard="169 81" class="key key-c-sharp"></div>
+        <div data-note="d5-sharp" data-keyboard="83" class="key key-d-sharp"></div>
+
+        <div data-note="f5-sharp" data-keyboard="70" class="key key-f-sharp"></div>
+        <div data-note="g5-sharp" data-keyboard="71" class="key key-g-sharp"></div>
+        <div data-note="a5-sharp" data-keyboard="72" class="key key-a-sharp"></div>
+
+        <div data-note="c6-sharp" data-keyboard="75" class="key key-c-sharp"></div>
+        <div data-note="d6-sharp" data-keyboard="76" class="key key-d-sharp"></div>
+
+        <div data-note="f6-sharp" data-keyboard="165" class="key key-f-sharp"></div>
+      </section>
+
+    </section>
+
+
+
+  </section>
+
+
+
+
+  <div class="formFooter">
+    <!-- This section gets pushed to the left side-->
+    <div class="formFooter__section">
+      <div class="formFooter__item formFooterFeedback">
+        <div class="fa fa-spinner formFooterSpinner"></div>&nbsp;Saving...
+      </div>
+    </div>
+    <!-- This section gets pushed to the right side-->
+    <div class="formFooter__section">
+      <div class="formFooter__item button button--clear">Reset</div>
+      <div class="formFooter__item button">Save</div>
+    </div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+  <!--   <script type="text/javascript" src="./js/lib/howler.js"></script> -->
+  <!-- <script type="text/javascript" src="./js/lib/jquery.min.js"></script> -->
+  <script type="text/javascript" src="./js/lib/localforage.js"></script>
+  <script type="text/javascript" src="./js/lib/WebMIDIAPI.js"></script>
+  <script type="text/javascript" src="./js/app/app.js"></script>
+</body>
+</html>
