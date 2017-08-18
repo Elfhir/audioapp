@@ -51,10 +51,8 @@
       <div class="siteHeader__item siteHeaderButton" data-type="sawtooth">Sawtooth</div>
       <div class="siteHeader__item siteHeaderButton" data-type="triangle">Triangle</div>
       <div class="siteHeader__item">Detune </div>
-      <div class="stepperInput">
-        <button class="button button--addOnLeft">-</button>
-        <input type="text" value="100" class="input stepperInput__input"/>
-        <button class="button button--addOnRight">+</button>
+      <div class="">
+        <input type="range" value="100" min="0" max="100" step="1" class="input detune"/>
       </div>
     </div>
   </div>
@@ -66,51 +64,134 @@
     <section class="keys-container" data-keyboard-layout="fr-fr">
 
       <section class="white-keys keys">
-        <div data-note="a3" data-keyboard="65" class="key key-a"></div>
 
-        <div data-note="b3" data-keyboard="90" class="key key-b"></div>
-        <div data-note="c4" data-keyboard="69" class="key key-c"></div>
-        <div data-note="d4" data-keyboard="82" class="key key-d"></div>
-        <div data-note="e4" data-keyboard="84" class="key key-e"></div>
-        <div data-note="f4" data-keyboard="89" class="key key-f"></div>
-        <div data-note="g4" data-keyboard="85" class="key key-g"></div>
-        <div data-note="a4" data-keyboard="73" class="key key-a"></div>
-        <div data-note="b4" data-keyboard="79" class="key key-b"></div>
-        <div data-note="c5" data-keyboard="80" class="key key-c"></div>
+        <div data-note="c0" class="key key-c"></div>
+        <div data-note="d0" class="key key-d"></div>
+        <div data-note="e0" class="key key-e"></div>
+        <div data-note="f0" class="key key-f"></div>
+        <div data-note="g0" class="key key-g"></div>
+        <div data-note="a0" class="key key-a"></div>
+        <div data-note="b0" class="key key-b"></div>
 
-        <div data-note="d5" data-keyboard="87" class="key key-d"></div>
-        <div data-note="e5" data-keyboard="88" class="key key-e"></div>
-        <div data-note="f5" data-keyboard="67" class="key key-f"></div>
-        <div data-note="g5" data-keyboard="86" class="key key-g"></div>
-        <div data-note="a5" data-keyboard="66" class="key key-a"></div>
-        <div data-note="b5" data-keyboard="78" class="key key-b"></div>
-        <div data-note="c6" data-keyboard="188" class="key key-c"></div>
-        <div data-note="d6" data-keyboard="59" class="key key-d"></div>
-        <div data-note="e6" data-keyboard="58" class="key key-e"></div>
-        <div data-note="f6" data-keyboard="161" class="key key-f"></div>
+
+        <div data-note="c1" class="key key-c"></div>
+        <div data-note="d1" class="key key-d"></div>
+        <div data-note="e1" class="key key-e"></div>
+        <div data-note="f1" class="key key-f"></div>
+        <div data-note="g1" class="key key-g"></div>
+        <div data-note="a1" class="key key-a"></div>
+        <div data-note="b1" class="key key-b"></div>
+
+
+        <div data-note="c2" class="key key-c"></div>
+        <div data-note="d2" class="key key-d"></div>
+        <div data-note="e2" class="key key-e"></div>
+        <div data-note="f2" class="key key-f"></div>
+        <div data-note="g2" class="key key-g"></div>
+        <div data-note="a2" class="key key-a"></div>
+        <div data-note="b2" class="key key-b"></div>
+
+        <div data-note="c3" class="key key-c"></div>
+        <div data-note="d3" class="key key-d"></div>
+        <div data-note="e3" class="key key-e"></div>
+        <div data-note="f3" class="key key-f"></div>
+        <div data-note="g3" class="key key-g"></div>
+        <div data-note="a3" class="key key-a"></div>
+        <div data-note="b3" class="key key-b"></div>
+
+        <div data-note="c4" class="key key-c"></div>
+        <div data-note="d4" class="key key-d"></div>
+        <div data-note="e4" class="key key-e"></div>
+        <div data-note="f4" class="key key-f"></div>
+        <div data-note="g4" class="key key-g"></div>
+        <div data-note="a4" class="key key-a"></div>
+        <div data-note="b4" class="key key-b"></div>
+
+        <div data-note="c5" class="key key-c"></div>
+        <div data-note="d5" class="key key-d"></div>
+        <div data-note="e5" class="key key-e"></div>
+        <div data-note="f5" class="key key-f"></div>
+        <div data-note="g5" class="key key-g"></div>
+        <div data-note="a5" class="key key-a"></div>
+        <div data-note="b5" class="key key-b"></div>
+
+        <div data-note="c6" class="key key-c"></div>
+        <div data-note="d6" class="key key-d"></div>
+        <div data-note="e6" class="key key-e"></div>
+        <div data-note="f6" class="key key-f"></div>
+        <div data-note="g6" class="key key-g"></div>
+        <div data-note="a6" class="key key-a"></div>
+        <div data-note="b6" class="key key-b"></div>
+
+        <div data-note="c7" class="key key-c"></div>
+        <div data-note="d7" class="key key-d"></div>
+        <div data-note="e7" class="key key-e"></div>
+        <div data-note="f7" class="key key-f"></div>
+        <div data-note="g7" class="key key-g"></div>
+        <div data-note="a7" class="key key-a"></div>
+        <div data-note="b7" class="key key-b"></div>
+
       </section>
 
       <section class="black-keys keys">
-        <div data-note="a3-sharp" data-keyboard="50" class="key key-a-sharp"></div>
 
-        <div data-note="c4-sharp" data-keyboard="52" class="key key-c-sharp"></div>
-        <div data-note="d4-sharp" data-keyboard="53" class="key key-d-sharp"></div>
+        <div data-note="c0-sharp" class="key key-c-sharp"></div>
+        <div data-note="d0-sharp" class="key key-d-sharp"></div>
 
-        <div data-note="f4-sharp" data-keyboard="55" class="key key-f-sharp"></div>
-        <div data-note="g4-sharp" data-keyboard="56" class="key key-g-sharp"></div>
-        <div data-note="a4-sharp" data-keyboard="57" class="key key-a-sharp"></div>
+        <div data-note="f0-sharp" class="key key-f-sharp"></div>
+        <div data-note="g0-sharp" class="key key-g-sharp"></div>
+        <div data-note="a0-sharp" class="key key-a-sharp"></div>
 
-        <div data-note="c5-sharp" data-keyboard="169 81" class="key key-c-sharp"></div>
-        <div data-note="d5-sharp" data-keyboard="83" class="key key-d-sharp"></div>
+        <div data-note="c1-sharp" class="key key-c-sharp"></div>
+        <div data-note="d1-sharp" class="key key-d-sharp"></div>
 
-        <div data-note="f5-sharp" data-keyboard="70" class="key key-f-sharp"></div>
-        <div data-note="g5-sharp" data-keyboard="71" class="key key-g-sharp"></div>
-        <div data-note="a5-sharp" data-keyboard="72" class="key key-a-sharp"></div>
+        <div data-note="f1-sharp" class="key key-f-sharp"></div>
+        <div data-note="g1-sharp" class="key key-g-sharp"></div>
+        <div data-note="a1-sharp" class="key key-a-sharp"></div>
 
-        <div data-note="c6-sharp" data-keyboard="75" class="key key-c-sharp"></div>
-        <div data-note="d6-sharp" data-keyboard="76" class="key key-d-sharp"></div>
+        <div data-note="c2-sharp" class="key key-c-sharp"></div>
+        <div data-note="d2-sharp" class="key key-d-sharp"></div>
 
-        <div data-note="f6-sharp" data-keyboard="165" class="key key-f-sharp"></div>
+        <div data-note="f2-sharp" class="key key-f-sharp"></div>
+        <div data-note="g2-sharp" class="key key-g-sharp"></div>
+        <div data-note="a2-sharp" class="key key-a-sharp"></div>
+
+        <div data-note="c3-sharp" class="key key-c-sharp"></div>
+        <div data-note="d3-sharp" class="key key-d-sharp"></div>
+
+        <div data-note="f3-sharp" class="key key-f-sharp"></div>
+        <div data-note="g3-sharp" class="key key-g-sharp"></div>
+        <div data-note="a3-sharp" class="key key-a-sharp"></div>
+
+        <div data-note="c4-sharp" class="key key-c-sharp"></div>
+        <div data-note="d4-sharp" class="key key-d-sharp"></div>
+
+        <div data-note="f4-sharp" class="key key-f-sharp"></div>
+        <div data-note="g4-sharp" class="key key-g-sharp"></div>
+        <div data-note="a4-sharp" class="key key-a-sharp"></div>
+
+        <div data-note="c5-sharp" class="key key-c-sharp"></div>
+        <div data-note="d5-sharp" class="key key-d-sharp"></div>
+
+        <div data-note="f5-sharp" class="key key-f-sharp"></div>
+        <div data-note="g5-sharp" class="key key-g-sharp"></div>
+        <div data-note="a5-sharp" class="key key-a-sharp"></div>
+
+        <div data-note="c6-sharp" class="key key-c-sharp"></div>
+        <div data-note="d6-sharp" class="key key-d-sharp"></div>
+
+        <div data-note="f6-sharp" class="key key-f-sharp"></div>
+        <div data-note="g6-sharp" class="key key-g-sharp"></div>
+        <div data-note="a6-sharp" class="key key-a-sharp"></div>
+
+        <div data-note="c7-sharp" class="key key-c-sharp"></div>
+        <div data-note="d7-sharp" class="key key-d-sharp"></div>
+
+        <div data-note="f7-sharp" class="key key-f-sharp"></div>
+        <div data-note="g7-sharp" class="key key-g-sharp"></div>
+        <div data-note="a7-sharp" class="key key-a-sharp"></div>
+
+
       </section>
 
     </section>
@@ -142,6 +223,6 @@
   <!-- <script type="text/javascript" src="./js/lib/jquery.min.js"></script> -->
   <script type="text/javascript" src="./js/lib/localforage.js"></script>
   <script type="text/javascript" src="./js/lib/WebMIDIAPI.js"></script>
-  <script type="text/javascript" src="./js/app/app.js"></script>
+  <script type="text/javascript" src="./js/app/midi-app.js"></script>
 </body>
 </html>

@@ -473,155 +473,155 @@
 				switch(key) {
 
 					/* azertyuiop */
-				case 65: // a
-				frequency = 440.00;
-				break;
+					case 65: // a
+					frequency = 440.00;
+					break;
 
-				case 90: // z
-				frequency = 493.88;
-				break;
+					case 90: // z
+					frequency = 493.88;
+					break;
 
-				case 69: // e
-				frequency = 523.25;
-				break;
+					case 69: // e
+					frequency = 523.25;
+					break;
 
-				case 82: // r
-				frequency = 587.33;
-				break;
+					case 82: // r
+					frequency = 587.33;
+					break;
 
-				case 84: // t
-				frequency = 659.26;
-				break;
+					case 84: // t
+					frequency = 659.26;
+					break;
 
-				case 89: // y
-				frequency = 698.46;
-				break;
+					case 89: // y
+					frequency = 698.46;
+					break;
 
-				case 85: // u
-				frequency = 783.89;
-				break;
+					case 85: // u
+					frequency = 783.89;
+					break;
 
-				case 73: // i
-				frequency = 880.00;
-				break;
+					case 73: // i
+					frequency = 880.00;
+					break;
 
-				case 79: // o
-				frequency = 987.77;
-				break;
+					case 79: // o
+					frequency = 987.77;
+					break;
 
-				case 80: // p
-				frequency = 1046.50;
-				break;
-
-
-				/* é'(è_ç  or 2 45 789 */
-				case 50: // é
-				frequency = 466.16;
-				break;
-
-				case 52: // '
-				keydownEvent.preventDefault();
-				frequency = 554.37;
-				break;
-
-				case 53: // (
-				frequency = 622.25;
-				break;
-
-				case 55: // è
-				frequency = 739.99;
-				break;
-
-				case 56: // _
-				frequency = 830.61;
-				break;
-
-				case 57: // ç
-				frequency = 932.33;
-				break;
+					case 80: // p
+					frequency = 1046.50;
+					break;
 
 
-				/* wxcvbn,;:! */
-				case 87: // w
-				frequency = 1174.66;
-				break;
+					/* é'(è_ç  or 2 45 789 */
+					case 50: // é
+					frequency = 466.16;
+					break;
 
-				case 88: // x
-				frequency = 1318.51;
-				break;
+					case 52: // '
+					keydownEvent.preventDefault();
+					frequency = 554.37;
+					break;
 
-				case 67: // c
-				frequency = 1396.91;
-				break;
+					case 53: // (
+					frequency = 622.25;
+					break;
 
-				case 86: // v
-				frequency = 1567.98;
-				break;
+					case 55: // è
+					frequency = 739.99;
+					break;
 
-				case 66: // b
-				frequency = 1760.00;
-				break;
+					case 56: // _
+					frequency = 830.61;
+					break;
 
-				case 78: // n
-				frequency = 1975.53;
-				break;
-
-				case 188: // ,
-				frequency = 2093.00;
-				break;
-
-				case 59: // ;
-				frequency = 2349.32;
-				break;
-
-				case 58: // :
-				frequency = 2637.02;
-				break;
-
-				case 161: // !
-				frequency = 2793.83;
-				break;
-
-				/* °q */
-				case 169:
-				case 81:
-				frequency = 1108.73;
-				break;
+					case 57: // ç
+					frequency = 932.33;
+					break;
 
 
-				/* sfghkl */
-				case 83: // s
-				frequency = 1244.51;
-				break;
+					/* wxcvbn,;:! */
+					case 87: // w
+					frequency = 1174.66;
+					break;
 
-				case 70: // f
-				frequency = 1479.98;
-				break;
+					case 88: // x
+					frequency = 1318.51;
+					break;
 
-				case 71: // g
-				frequency = 1661.22;
-				break;
+					case 67: // c
+					frequency = 1396.91;
+					break;
 
-				case 72: // h
-				frequency = 1864.66;
-				break;
+					case 86: // v
+					frequency = 1567.98;
+					break;
 
-				case 75: // k
-				frequency = 2217.46;
-				break;
+					case 66: // b
+					frequency = 1760.00;
+					break;
 
-				case 76: // l
-				frequency = 2489.02;
-				break;
+					case 78: // n
+					frequency = 1975.53;
+					break;
 
-				case 165: // %
-				frequency = 2959.96;
-				break;
+					case 188: // ,
+					frequency = 2093.00;
+					break;
+
+					case 59: // ;
+					frequency = 2349.32;
+					break;
+
+					case 58: // :
+					frequency = 2637.02;
+					break;
+
+					case 161: // !
+					frequency = 2793.83;
+					break;
+
+					/* °q */
+					case 169:
+					case 81:
+					frequency = 1108.73;
+					break;
 
 
-				default: 
-				break;; // exit this handler for other keys
-			}
+					/* sfghkl */
+					case 83: // s
+					frequency = 1244.51;
+					break;
+
+					case 70: // f
+					frequency = 1479.98;
+					break;
+
+					case 71: // g
+					frequency = 1661.22;
+					break;
+
+					case 72: // h
+					frequency = 1864.66;
+					break;
+
+					case 75: // k
+					frequency = 2217.46;
+					break;
+
+					case 76: // l
+					frequency = 2489.02;
+					break;
+
+					case 165: // %
+					frequency = 2959.96;
+					break;
+
+
+					default: 
+					break; // exit this handler for other keys
+				}
 		}
 		else {
 
