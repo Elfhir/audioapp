@@ -14,49 +14,61 @@
 <body class="loading">
 
 
+  <header class="app-header">
+    <section class="menu__line">
 
-  <div class="siteHeader">
-    <!-- This section gets pushed to the left side-->
-    <div class="siteHeader__section">
-      <div class="siteHeader__item siteHeaderLogo">
-        <div class="fa fa-inbox"></div>
+      <div class="menu__section midi-app-logo">
+        <div>
+          <img src="./img/midi-app-logo.svg" alt="#" />
+        </div>
+        
       </div>
-      <div class="siteHeader__item siteHeaderButton refresh">Refresh</div>
-      <div class="siteHeader__item siteHeaderButton">New</div>
-      <div class="siteHeader__item siteHeaderButton trash">Trash</div>
 
-      <ul class="midi-keyboard">
-        <li><span>Manufacturer: </span><span class="mk-manufacturer"></span></li>
-        <li><span>Model name: </span><span class="mk-name"></span></li>
-        <li><span>Connection: </span><span class="mk-connection"></span></li>
-        <li><span>State: </span><span class="mk-state"></span></li>
-      </ul>
-
-    </div>
-    <!-- This section gets pushed to the right side-->
-    <div class="siteHeader__section">
-      <div class="siteHeader__item siteHeaderButton">Settings</div>
-      
-    </div>
-  </div>
-
-  <div class="siteHeader">
-    <!-- This section gets pushed to the left side-->
-    <div class="siteHeader__section">
-      <div class="siteHeader__item siteHeaderLogo">
-        <div class="fa fa-inbox"></div>
+      <div class="menu__section">
+        <div>
+          <span class="menu__title">Waveform</span>
+          <button class="button" type="button" data-settings="waveform" data-waveformtype="sine">Sine</button>
+          <button class="button" type="button" data-settings="waveform" data-waveformtype="square">Square</button>
+          <button class="button" type="button" data-settings="waveform" data-waveformtype="sawtooth">Sawtooth</button>
+          <button class="button" type="button" data-settings="waveform" data-waveformtype="triangle">Triangle</button>
+        </div>
       </div>
-      <div class="siteHeader__item siteHeaderButton" data-type="sine">Sine</div>
-      <div class="siteHeader__item siteHeaderButton" data-type="square">Square</div>
-      <div class="siteHeader__item siteHeaderButton" data-type="sawtooth">Sawtooth</div>
-      <div class="siteHeader__item siteHeaderButton" data-type="triangle">Triangle</div>
-      <div class="siteHeader__item">Detune </div>
-      <div class="">
-        <input type="range" value="100" min="0" max="100" step="1" class="input detune"/>
-      </div>
-    </div>
-  </div>
 
+
+      <div class="menu__section midi-keyboard">
+        <div>
+          <span class="menu__title">Keyboard Informations</span>
+          <div><span>Manufacturer: </span><span class="mk-manufacturer"></span></div>
+          <div><span>Model name: </span><span class="mk-name"></span></div>
+          <div><span>Connection: </span><span class="mk-connection">&nbsp;</span></div>
+          <div><span>State: </span><span class="mk-state"></span>&nbsp;</div>
+        </div>
+      </div>
+
+      <div class="menu__section">
+        <div>
+          <span class="menu__title">Session</span>
+          <button class="button refresh" type="button">Refresh</button>
+          <button class="button new" type="button">New</button>
+          <button class="button trash" type="button">Trash</button> 
+        </div>
+      </div>
+
+    </section>
+
+    <section class="menu__line">
+
+
+      <div class="menu__section">
+        <div>
+          <span class="menu__title">Detune</span>
+          <input type="range" value="100" min="0" max="100" step="1" class="input" data-settings="range_detune"/>
+        </div>
+      </div>
+
+
+    </section>
+  </header>
 
 
   <section id="pianokeys">
@@ -65,131 +77,163 @@
 
       <section class="white-keys keys">
 
-        <div data-note="c0" class="key key-c"></div>
-        <div data-note="d0" class="key key-d"></div>
-        <div data-note="e0" class="key key-e"></div>
-        <div data-note="f0" class="key key-f"></div>
-        <div data-note="g0" class="key key-g"></div>
-        <div data-note="a0" class="key key-a"></div>
-        <div data-note="b0" class="key key-b"></div>
+        <div data-num="0" data-note="c0" class="key key-c"></div>
+        <div data-num="2" data-note="d0" class="key key-d"></div>
+        <div data-num="4" data-note="e0" class="key key-e"></div>
+        <div data-num="5" data-note="f0" class="key key-f"></div>
+        <div data-num="7" data-note="g0" class="key key-g"></div>
+        <div data-num="9" data-note="a0" class="key key-a"></div>
+        <div data-num="11" data-note="b0" class="key key-b"></div>
 
 
-        <div data-note="c1" class="key key-c"></div>
-        <div data-note="d1" class="key key-d"></div>
-        <div data-note="e1" class="key key-e"></div>
-        <div data-note="f1" class="key key-f"></div>
-        <div data-note="g1" class="key key-g"></div>
-        <div data-note="a1" class="key key-a"></div>
-        <div data-note="b1" class="key key-b"></div>
+        <div data-num="12" data-note="c1" class="key key-c"></div>
+        <div data-num="14" data-note="d1" class="key key-d"></div>
+        <div data-num="16" data-note="e1" class="key key-e"></div>
+        <div data-num="17" data-note="f1" class="key key-f"></div>
+        <div data-num="19" data-note="g1" class="key key-g"></div>
+        <div data-num="21" data-note="a1" class="key key-a"></div>
+        <div data-num="23" data-note="b1" class="key key-b"></div>
 
 
-        <div data-note="c2" class="key key-c"></div>
-        <div data-note="d2" class="key key-d"></div>
-        <div data-note="e2" class="key key-e"></div>
-        <div data-note="f2" class="key key-f"></div>
-        <div data-note="g2" class="key key-g"></div>
-        <div data-note="a2" class="key key-a"></div>
-        <div data-note="b2" class="key key-b"></div>
+        <div data-num="24" data-note="c2" class="key key-c"></div>
+        <div data-num="26" data-note="d2" class="key key-d"></div>
+        <div data-num="28" data-note="e2" class="key key-e"></div>
+        <div data-num="29" data-note="f2" class="key key-f"></div>
+        <div data-num="31" data-note="g2" class="key key-g"></div>
+        <div data-num="33" data-note="a2" class="key key-a"></div>
+        <div data-num="35" data-note="b2" class="key key-b"></div>
 
-        <div data-note="c3" class="key key-c"></div>
-        <div data-note="d3" class="key key-d"></div>
-        <div data-note="e3" class="key key-e"></div>
-        <div data-note="f3" class="key key-f"></div>
-        <div data-note="g3" class="key key-g"></div>
-        <div data-note="a3" class="key key-a"></div>
-        <div data-note="b3" class="key key-b"></div>
+        <div data-num="36" data-note="c3" class="key key-c"></div>
+        <div data-num="38" data-note="d3" class="key key-d"></div>
+        <div data-num="40" data-note="e3" class="key key-e"></div>
+        <div data-num="41" data-note="f3" class="key key-f"></div>
+        <div data-num="43" data-note="g3" class="key key-g"></div>
+        <div data-num="45" data-note="a3" class="key key-a"></div>
+        <div data-num="47" data-note="b3" class="key key-b"></div>
 
-        <div data-note="c4" class="key key-c"></div>
-        <div data-note="d4" class="key key-d"></div>
-        <div data-note="e4" class="key key-e"></div>
-        <div data-note="f4" class="key key-f"></div>
-        <div data-note="g4" class="key key-g"></div>
-        <div data-note="a4" class="key key-a"></div>
-        <div data-note="b4" class="key key-b"></div>
+        <div data-num="48" data-note="c4" class="key key-c"></div>
+        <div data-num="50" data-note="d4" class="key key-d"></div>
+        <div data-num="52" data-note="e4" class="key key-e"></div>
+        <div data-num="53" data-note="f4" class="key key-f"></div>
+        <div data-num="55" data-note="g4" class="key key-g"></div>
+        <div data-num="57" data-note="a4" class="key key-a"></div>
+        <div data-num="59" data-note="b4" class="key key-b"></div>
 
-        <div data-note="c5" class="key key-c"></div>
-        <div data-note="d5" class="key key-d"></div>
-        <div data-note="e5" class="key key-e"></div>
-        <div data-note="f5" class="key key-f"></div>
-        <div data-note="g5" class="key key-g"></div>
-        <div data-note="a5" class="key key-a"></div>
-        <div data-note="b5" class="key key-b"></div>
+        <div data-num="60" data-note="c5" class="key key-c"></div>
+        <div data-num="62" data-note="d5" class="key key-d"></div>
+        <div data-num="64" data-note="e5" class="key key-e"></div>
+        <div data-num="65" data-note="f5" class="key key-f"></div>
+        <div data-num="67" data-note="g5" class="key key-g"></div>
+        <div data-num="69" data-note="a5" class="key key-a"></div>
+        <div data-num="71" data-note="b5" class="key key-b"></div>
 
-        <div data-note="c6" class="key key-c"></div>
-        <div data-note="d6" class="key key-d"></div>
-        <div data-note="e6" class="key key-e"></div>
-        <div data-note="f6" class="key key-f"></div>
-        <div data-note="g6" class="key key-g"></div>
-        <div data-note="a6" class="key key-a"></div>
-        <div data-note="b6" class="key key-b"></div>
+        <div data-num="72" data-note="c6" class="key key-c"></div>
+        <div data-num="74" data-note="d6" class="key key-d"></div>
+        <div data-num="76" data-note="e6" class="key key-e"></div>
+        <div data-num="77" data-note="f6" class="key key-f"></div>
+        <div data-num="79" data-note="g6" class="key key-g"></div>
+        <div data-num="81" data-note="a6" class="key key-a"></div>
+        <div data-num="83" data-note="b6" class="key key-b"></div>
 
-        <div data-note="c7" class="key key-c"></div>
-        <div data-note="d7" class="key key-d"></div>
-        <div data-note="e7" class="key key-e"></div>
-        <div data-note="f7" class="key key-f"></div>
-        <div data-note="g7" class="key key-g"></div>
-        <div data-note="a7" class="key key-a"></div>
-        <div data-note="b7" class="key key-b"></div>
+        <div data-num="84" data-note="c7" class="key key-c"></div>
+        <div data-num="86" data-note="d7" class="key key-d"></div>
+        <div data-num="88" data-note="e7" class="key key-e"></div>
+        <div data-num="89" data-note="f7" class="key key-f"></div>
+        <div data-num="91" data-note="g7" class="key key-g"></div>
+        <div data-num="93" data-note="a7" class="key key-a"></div>
+        <div data-num="95" data-note="b7" class="key key-b"></div>
+
+        <div data-num="96" data-note="c8" class="key key-c"></div>
+        <div data-num="98" data-note="d8" class="key key-d"></div>
+        <div data-num="100" data-note="e8" class="key key-e"></div>
+        <div data-num="101" data-note="f8" class="key key-f"></div>
+        <div data-num="103" data-note="g8" class="key key-g"></div>
+        <div data-num="105" data-note="a8" class="key key-a"></div>
+        <div data-num="107" data-note="b8" class="key key-b"></div>       
+
+        <div data-num="108" data-note="c9" class="key key-c"></div>
+        <div data-num="110" data-note="d9" class="key key-d"></div>
+        <div data-num="112" data-note="e9" class="key key-e"></div>
+        <div data-num="113" data-note="f9" class="key key-f"></div>
+        <div data-num="115" data-note="g9" class="key key-g"></div>
+        <div data-num="117" data-note="a9" class="key key-a"></div>
+        <div data-num="119" data-note="b9" class="key key-b"></div>  
+
+        <div data-num="120" data-note="c10" class="key key-c"></div> 
 
       </section>
 
       <section class="black-keys keys">
 
-        <div data-note="c0-sharp" class="key key-c-sharp"></div>
-        <div data-note="d0-sharp" class="key key-d-sharp"></div>
+        <div data-num="1" data-note="c0-sharp" class="key key-c-sharp"></div>
+        <div data-num="3" data-note="d0-sharp" class="key key-d-sharp"></div>
 
-        <div data-note="f0-sharp" class="key key-f-sharp"></div>
-        <div data-note="g0-sharp" class="key key-g-sharp"></div>
-        <div data-note="a0-sharp" class="key key-a-sharp"></div>
+        <div data-num="6" data-note="f0-sharp" class="key key-f-sharp"></div>
+        <div data-num="8" data-note="g0-sharp" class="key key-g-sharp"></div>
+        <div data-num="10" data-note="a0-sharp" class="key key-a-sharp"></div>
 
-        <div data-note="c1-sharp" class="key key-c-sharp"></div>
-        <div data-note="d1-sharp" class="key key-d-sharp"></div>
+        <div data-num="13" data-note="c1-sharp" class="key key-c-sharp"></div>
+        <div data-num="15" data-note="d1-sharp" class="key key-d-sharp"></div>
 
-        <div data-note="f1-sharp" class="key key-f-sharp"></div>
-        <div data-note="g1-sharp" class="key key-g-sharp"></div>
-        <div data-note="a1-sharp" class="key key-a-sharp"></div>
+        <div data-num="18" data-note="f1-sharp" class="key key-f-sharp"></div>
+        <div data-num="20" data-note="g1-sharp" class="key key-g-sharp"></div>
+        <div data-num="22" data-note="a1-sharp" class="key key-a-sharp"></div>
 
-        <div data-note="c2-sharp" class="key key-c-sharp"></div>
-        <div data-note="d2-sharp" class="key key-d-sharp"></div>
+        <div data-num="25" data-note="c2-sharp" class="key key-c-sharp"></div>
+        <div data-num="27" data-note="d2-sharp" class="key key-d-sharp"></div>
 
-        <div data-note="f2-sharp" class="key key-f-sharp"></div>
-        <div data-note="g2-sharp" class="key key-g-sharp"></div>
-        <div data-note="a2-sharp" class="key key-a-sharp"></div>
+        <div data-num="30" data-note="f2-sharp" class="key key-f-sharp"></div>
+        <div data-num="32" data-note="g2-sharp" class="key key-g-sharp"></div>
+        <div data-num="34" data-note="a2-sharp" class="key key-a-sharp"></div>
 
-        <div data-note="c3-sharp" class="key key-c-sharp"></div>
-        <div data-note="d3-sharp" class="key key-d-sharp"></div>
+        <div data-num="37" data-note="c3-sharp" class="key key-c-sharp"></div>
+        <div data-num="39" data-note="d3-sharp" class="key key-d-sharp"></div>
 
-        <div data-note="f3-sharp" class="key key-f-sharp"></div>
-        <div data-note="g3-sharp" class="key key-g-sharp"></div>
-        <div data-note="a3-sharp" class="key key-a-sharp"></div>
+        <div data-num="42" data-note="f3-sharp" class="key key-f-sharp"></div>
+        <div data-num="44" data-note="g3-sharp" class="key key-g-sharp"></div>
+        <div data-num="46" data-note="a3-sharp" class="key key-a-sharp"></div>
 
-        <div data-note="c4-sharp" class="key key-c-sharp"></div>
-        <div data-note="d4-sharp" class="key key-d-sharp"></div>
+        <div data-num="49" data-note="c4-sharp" class="key key-c-sharp"></div>
+        <div data-num="51" data-note="d4-sharp" class="key key-d-sharp"></div>
 
-        <div data-note="f4-sharp" class="key key-f-sharp"></div>
-        <div data-note="g4-sharp" class="key key-g-sharp"></div>
-        <div data-note="a4-sharp" class="key key-a-sharp"></div>
+        <div data-num="54" data-note="f4-sharp" class="key key-f-sharp"></div>
+        <div data-num="56" data-note="g4-sharp" class="key key-g-sharp"></div>
+        <div data-num="58" data-note="a4-sharp" class="key key-a-sharp"></div>
 
-        <div data-note="c5-sharp" class="key key-c-sharp"></div>
-        <div data-note="d5-sharp" class="key key-d-sharp"></div>
+        <div data-num="61" data-note="c5-sharp" class="key key-c-sharp"></div>
+        <div data-num="63" data-note="d5-sharp" class="key key-d-sharp"></div>
 
-        <div data-note="f5-sharp" class="key key-f-sharp"></div>
-        <div data-note="g5-sharp" class="key key-g-sharp"></div>
-        <div data-note="a5-sharp" class="key key-a-sharp"></div>
+        <div data-num="66" data-note="f5-sharp" class="key key-f-sharp"></div>
+        <div data-num="68" data-note="g5-sharp" class="key key-g-sharp"></div>
+        <div data-num="70" data-note="a5-sharp" class="key key-a-sharp"></div>
 
-        <div data-note="c6-sharp" class="key key-c-sharp"></div>
-        <div data-note="d6-sharp" class="key key-d-sharp"></div>
+        <div data-num="73" data-note="c6-sharp" class="key key-c-sharp"></div>
+        <div data-num="75" data-note="d6-sharp" class="key key-d-sharp"></div>
 
-        <div data-note="f6-sharp" class="key key-f-sharp"></div>
-        <div data-note="g6-sharp" class="key key-g-sharp"></div>
-        <div data-note="a6-sharp" class="key key-a-sharp"></div>
+        <div data-num="78" data-note="f6-sharp" class="key key-f-sharp"></div>
+        <div data-num="80" data-note="g6-sharp" class="key key-g-sharp"></div>
+        <div data-num="82" data-note="a6-sharp" class="key key-a-sharp"></div>
 
-        <div data-note="c7-sharp" class="key key-c-sharp"></div>
-        <div data-note="d7-sharp" class="key key-d-sharp"></div>
+        <div data-num="85" data-note="c7-sharp" class="key key-c-sharp"></div>
+        <div data-num="87" data-note="d7-sharp" class="key key-d-sharp"></div>
 
-        <div data-note="f7-sharp" class="key key-f-sharp"></div>
-        <div data-note="g7-sharp" class="key key-g-sharp"></div>
-        <div data-note="a7-sharp" class="key key-a-sharp"></div>
+        <div data-num="90" data-note="f7-sharp" class="key key-f-sharp"></div>
+        <div data-num="92" data-note="g7-sharp" class="key key-g-sharp"></div>
+        <div data-num="94" data-note="a7-sharp" class="key key-a-sharp"></div>
+
+        <div data-num="97" data-note="c8-sharp" class="key key-c-sharp"></div>
+        <div data-num="99" data-note="d8-sharp" class="key key-d-sharp"></div>
+
+        <div data-num="102" data-note="f8-sharp" class="key key-f-sharp"></div>
+        <div data-num="104" data-note="g8-sharp" class="key key-g-sharp"></div>
+        <div data-num="106" data-note="a8-sharp" class="key key-a-sharp"></div>
+
+        <div data-num="109" data-note="c9-sharp" class="key key-c-sharp"></div>
+        <div data-num="111" data-note="d9-sharp" class="key key-d-sharp"></div>
+
+        <div data-num="114" data-note="f9-sharp" class="key key-f-sharp"></div>
+        <div data-num="116" data-note="g9-sharp" class="key key-g-sharp"></div>
+        <div data-num="118" data-note="a9-sharp" class="key key-a-sharp"></div>
 
 
       </section>

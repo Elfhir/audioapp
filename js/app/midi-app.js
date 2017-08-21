@@ -44,9 +44,10 @@
 
 			this.MIDI_Init();
 			this.DOM_mouseListener();
+			this.DOM_rangeListener();
 
-			this.MEMORY_requestLocal("pianoK_oscillator_type");
-			this.MEMORY_requestLocal("pianoK_detune_value");
+			this.MEMORY_requestLocal("pianoK_waveformtype");
+			this.MEMORY_requestLocal("pianoK_range_detune");
 
 		},
 
@@ -55,8 +56,46 @@
 			var self = this;
 			$("body").removeClass("loading");
 
+
+
 			console.info(self);
-			// $(".input.detune").val(self.pianoK_detune_value);
+			// $(".input.detune").val(self.pianoK_range_detune);
+		},
+
+		DOM_refresh: function(delay) {
+			var self = this;
+
+			if (delay === undefined) {
+				delay = 100;
+			}
+
+			setTimeout(function() {
+				$.each(self, function (key, value) {
+					if (!(typeof value === "function" || typeof value === "object")) {
+						if (key.startsWith("pianoK_")) {
+							var settings_updated = key.slice(7);
+							if (settings_updated.startsWith("range_")) {
+								$("input[type=range]").each(function(i) {
+									if ($(this).data("settings") === key.slice(7)) {
+										$(this).val(value);
+									}
+								});
+							}
+							else {
+
+								$("[data-"+settings_updated+"]").each(function(i) {
+									if ($(this).data(settings_updated) === value) {
+										$(this).addClass("active");
+									}
+									else {
+										$(this).removeClass("active");
+									}
+								});
+							}
+						}
+					}
+				});
+			}, parseInt(delay));
 		},
 
 		// Set the Driver local memory
@@ -92,8 +131,8 @@
 
 							localforage.setItem("pianoK_settings", "settings");
 							localforage.setItem("pianoK_version", + new Date());
-							localforage.setItem("pianoK_oscillator_type", "square");
-							localforage.setItem("pianoK_detune_value", 100);
+							localforage.setItem("pianoK_waveformtype", "square");
+							localforage.setItem("pianoK_range_detune", "100");
 
 							self.MEMORY_settings = localforage;
 							self.init();
@@ -121,8 +160,8 @@
 
 							localforage.setItem("pianoK_settings", "settings");
 							localforage.setItem("pianoK_version", + new Date());
-							localforage.setItem("pianoK_oscillator_type", "sawtooth");
-							localforage.setItem("pianoK_detune_value", 100);
+							localforage.setItem("pianoK_waveformtype", "sawtooth");
+							localforage.setItem("pianoK_range_detune", "100");
 
 							self.MEMORY_settings = localforage;
 							self.init();
@@ -201,7 +240,8 @@
 			if (velocity != 127) {
 				if (typeof self.PianoK.MIDI_soundsList[key] === "undefined") {
 					// last param is true because it's MIDI
-					self.PianoK.MIDI_soundsList[key] = self.PianoK.WA_generateOscillatorSound(self.PianoK.pianoK_oscillator_type, key, false, self.PianoK.pianoK_detune_value );
+					self.PianoK.MIDI_soundsList[key] = self.PianoK.WA_generateOscillatorSound(self.PianoK.pianoK_waveformtype, key, false, self.PianoK.pianoK_range_detune );
+					$("[data-num='"+key+"']").addClass("active");
 
 					if (self.PianoK.MIDI_soundsList[key] != undefined) {
 						self.PianoK.MIDI_soundsList[key].connect(self.PianoK.WA_ctx.destination);
@@ -212,7 +252,7 @@
 			}
 			else if (velocity == 127) {
 				(self.PianoK.MIDI_soundsList[key] != undefined) ? self.PianoK.MIDI_soundsList[key].stop() : validKey = false;
-
+				$("[data-num='"+key+"']").removeClass("active");
 				//console.warn(self.PianoK.soundsList[key]);
 
 				if (self.PianoK.MIDI_soundsList[key] != undefined) {
@@ -232,8 +272,12 @@
 			input.value.onmidimessage = self.PianoK.MIDI_MessageHandler;
 			$(".mk-manufacturer").html(input.value.manufacturer);
 			$(".mk-name").html(input.value.name);
-			$(".mk-connection").html(input.value.connection);
-			$(".mk-state").html(input.value.state);
+
+			$(".mk-connection").removeClass().addClass("mk-connection");
+			$(".mk-state").removeClass().addClass("mk-state");
+
+			$(".mk-connection").addClass(input.value.connection);
+			$(".mk-state").addClass(input.value.state);
 		},
 
 		MIDI_onsuccesscallback: function(midiAccess) {
@@ -252,21 +296,17 @@
 
 				$(".mk-manufacturer").html(port.manufacturer);
 				$(".mk-name").html(port.name);
-				$(".mk-connection").html(port.connection);
-				$(".mk-state").html(port.state);
 
-				if(port.state === "disconnected") {
-					$(".mk-connection").addClass("disconnected");
-					port.close();
-				}
-				else if (port.state === "connected") {
-					$(".mk-connection").addClass("connected");
-				}
-				else {
-					console.warn("dunno");
-				}
+				$(".mk-connection").removeClass().addClass("mk-connection");
+				$(".mk-state").removeClass().addClass("mk-state");
+
+				$(".mk-connection").addClass(port.connection);
+				$(".mk-state").addClass(port.state);
+
 			}, false);
 
+			self.PianoK.DOM_init();
+			self.PianoK.DOM_refresh(1500);
 		},
 
 		MIDI_onerrorcallback: function(err) {
@@ -311,10 +351,20 @@
 		DOM_mouseListener: function() {
 			var self = this;
 
-			$('body').on("click", ".siteHeaderButton", function(e) {
-				if ($(this).data("type")) {
-					self.MEMORY_settings.setItem("pianoK_oscillator_type", $(this).data("type"));
-					self.MEMORY_requestLocal("pianoK_oscillator_type");
+			$('body').on("click", ".button", function(e) {
+				if ($(this).data("settings")) {
+
+					var settings = $(this).data("settings");
+					switch(settings) {
+						case "waveform":
+						self.MEMORY_settings.setItem("pianoK_waveformtype", $(this).data("waveformtype"));
+						self.MEMORY_requestLocal("pianoK_waveformtype");
+						self.DOM_refresh(1000);
+						break;
+
+						default:
+						break;
+					}
 				}
 				else if ($(this).hasClass("refresh")) {
 					location.reload();
@@ -323,6 +373,19 @@
 					console.log("Trash localforage");
 					self.MEMORY_trash(true);
 				}
+			});
+		},
+
+		DOM_rangeListener: function() {
+			var self = this;
+
+			$('input[type=range]').on('input change', function (e) {
+				var input_range = $(this);
+				var val = input_range.val();
+				var settings_updated = "pianoK_" + input_range.data("settings");
+				localforage.setItem(settings_updated, val);
+				self.MEMORY_requestLocal(settings_updated);
+				self.DOM_refresh(1000);
 			});
 		},
 
@@ -384,4 +447,3 @@
 	var PianoK = new PianoKGlobal();
 
 	PianoK.debug();
-	PianoK.DOM_init();
