@@ -52,10 +52,12 @@
 		},
 
 		// Function to animate the DOM
-		DOM_init: function() {
+		DOM_init: function(state) {
 			var self = this;
 			$("body").removeClass("loading");
 
+
+			$(".midi-failed").eq(state).addClass("active");
 
 
 			console.info(self);
@@ -269,15 +271,21 @@
 		//
 		MIDI_main: function() {
 			var input = self.PianoK.MIDI_access.inputs.values().next();
-			input.value.onmidimessage = self.PianoK.MIDI_MessageHandler;
-			$(".mk-manufacturer").html(input.value.manufacturer);
-			$(".mk-name").html(input.value.name);
 
-			$(".mk-connection").removeClass().addClass("mk-connection");
-			$(".mk-state").removeClass().addClass("mk-state");
+			if (input.value !== undefined) {
+				input.value.onmidimessage = self.PianoK.MIDI_MessageHandler;
+				$(".mk-manufacturer").html(input.value.manufacturer);
+				$(".mk-name").html(input.value.name);
 
-			$(".mk-connection").addClass(input.value.connection);
-			$(".mk-state").addClass(input.value.state);
+				$(".mk-connection").removeClass().addClass("mk-connection");
+				$(".mk-state").removeClass().addClass("mk-state");
+
+				$(".mk-connection").addClass(input.value.connection);
+				$(".mk-state").addClass(input.value.state);		
+			}
+			else {
+				self.PianoK.DOM_init(1);
+			}
 		},
 
 		MIDI_onsuccesscallback: function(midiAccess) {
@@ -311,6 +319,8 @@
 
 		MIDI_onerrorcallback: function(err) {
 			console.error( "uh-oh! Something went wrong! Error code: " + err.code );
+
+			self.PianoK.DOM_init(0);
 		},
 
 		// Request Local variable in localforage
