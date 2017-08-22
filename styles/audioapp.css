@@ -147,7 +147,7 @@ body.loading {
   transform: translateX(-50%);
 
   -webkit-box-shadow: 0 0 1500px 1500px #BFEAFF;
-          box-shadow: 0 0 1500px 1500px #BFEAFF;
+  box-shadow: 0 0 1500px 1500px #BFEAFF;
 }
 
 .button {
@@ -190,6 +190,9 @@ body.loading {
 .button[data-waveformtype="sawtooth"] {
   background-image: url("../img/waveform_sawtooth.svg");
 }
+.button[data-waveformtype="custom"] {
+  background-image: url("../img/waveform_custom.svg");
+}
 
 
 .input {
@@ -206,17 +209,26 @@ input[type="range"] {
 input[type="range"]:after,
 input[type="range"]:before {
   position: absolute;
-  top: 1.5em;
+  left: -1.5em;
   color: #aaa;
   font-size: 8px;
 }
 input[type="range"]:before {
-  left:0em;
+  bottom : 0;
   content: attr(min);
 }
 input[type="range"]:after {
-  right: 0em;
+  top: 0;
   content: attr(max);
+}
+
+.menu__section.custom_wave input[type="range"] {
+  writing-mode: bt-lr; /* IE */
+  -webkit-appearance: slider-vertical; /* WebKit */
+  width: 8px;
+  height: 55px;
+  padding: 0 5px;
+
 }
 
 /* Piano */

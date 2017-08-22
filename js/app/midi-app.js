@@ -48,7 +48,18 @@
 
 			this.MEMORY_requestLocal("pianoK_waveformtype");
 			this.MEMORY_requestLocal("pianoK_range_detune");
-
+			this.MEMORY_requestLocal("pianoK_range_custom_wave_real_a");
+			this.MEMORY_requestLocal("pianoK_range_custom_wave_real_b");
+			this.MEMORY_requestLocal("pianoK_range_custom_wave_real_c");
+			this.MEMORY_requestLocal("pianoK_range_custom_wave_real_d");
+			this.MEMORY_requestLocal("pianoK_range_custom_wave_real_e");
+			this.MEMORY_requestLocal("pianoK_range_custom_wave_real_f");
+			this.MEMORY_requestLocal("pianoK_range_custom_wave_imag_a");
+			this.MEMORY_requestLocal("pianoK_range_custom_wave_imag_b");
+			this.MEMORY_requestLocal("pianoK_range_custom_wave_imag_c");
+			this.MEMORY_requestLocal("pianoK_range_custom_wave_imag_d");
+			this.MEMORY_requestLocal("pianoK_range_custom_wave_imag_e");
+			this.MEMORY_requestLocal("pianoK_range_custom_wave_imag_f");
 		},
 
 		// Function to animate the DOM
@@ -136,6 +147,20 @@
 							localforage.setItem("pianoK_waveformtype", "square");
 							localforage.setItem("pianoK_range_detune", "100");
 
+							localforage.setItem("pianoK_range_custom_wave_real_a", 0);
+							localforage.setItem("pianoK_range_custom_wave_real_b", 0);
+							localforage.setItem("pianoK_range_custom_wave_real_c", 0);
+							localforage.setItem("pianoK_range_custom_wave_real_d", 0);
+							localforage.setItem("pianoK_range_custom_wave_real_e", 0);
+							localforage.setItem("pianoK_range_custom_wave_real_f", 0);
+
+							localforage.setItem("pianoK_range_custom_wave_imag_a", 0);
+							localforage.setItem("pianoK_range_custom_wave_imag_b", 1);
+							localforage.setItem("pianoK_range_custom_wave_imag_c", 0);
+							localforage.setItem("pianoK_range_custom_wave_imag_d", 0);
+							localforage.setItem("pianoK_range_custom_wave_imag_e", 0);
+							localforage.setItem("pianoK_range_custom_wave_imag_f", 0);
+
 							self.MEMORY_settings = localforage;
 							self.init();
 						}
@@ -164,6 +189,20 @@
 							localforage.setItem("pianoK_version", + new Date());
 							localforage.setItem("pianoK_waveformtype", "sawtooth");
 							localforage.setItem("pianoK_range_detune", "100");
+
+							localforage.setItem("pianoK_range_custom_wave_real_a", 0);
+							localforage.setItem("pianoK_range_custom_wave_real_b", 0);
+							localforage.setItem("pianoK_range_custom_wave_real_c", 0);
+							localforage.setItem("pianoK_range_custom_wave_real_d", 0);
+							localforage.setItem("pianoK_range_custom_wave_real_e", 0);
+							localforage.setItem("pianoK_range_custom_wave_real_f", 0);
+
+							localforage.setItem("pianoK_range_custom_wave_imag_a", 0);
+							localforage.setItem("pianoK_range_custom_wave_imag_b", 1);
+							localforage.setItem("pianoK_range_custom_wave_imag_c", 0);
+							localforage.setItem("pianoK_range_custom_wave_imag_d", 0);
+							localforage.setItem("pianoK_range_custom_wave_imag_e", 0);
+							localforage.setItem("pianoK_range_custom_wave_imag_f", 0);
 
 							self.MEMORY_settings = localforage;
 							self.init();
@@ -393,7 +432,9 @@
 				var input_range = $(this);
 				var val = input_range.val();
 				var settings_updated = "pianoK_" + input_range.data("settings");
+
 				localforage.setItem(settings_updated, val);
+				
 				self.MEMORY_requestLocal(settings_updated);
 				self.DOM_refresh(1000);
 			});
@@ -436,8 +477,31 @@
 					frequency = 440.0 * Math.pow(r, exp);
 				}
 			}
+			if (waveform_type === "custom") {
+				var real = new Float32Array(6);
+				real[0] = parseInt(this.pianoK_range_custom_wave_real_a);
+				real[1] = parseInt(this.pianoK_range_custom_wave_real_b);
+				real[2] = parseInt(this.pianoK_range_custom_wave_real_c);
+				real[3] = parseInt(this.pianoK_range_custom_wave_real_d);
+				real[4] = parseInt(this.pianoK_range_custom_wave_real_e);
+				real[5] = parseInt(this.pianoK_range_custom_wave_real_f);
 
-			oscillator.type = waveform_type;
+				var imag = new Float32Array(6);
+				imag[0] = parseInt(this.pianoK_range_custom_wave_imag_a);
+				imag[1] = parseInt(this.pianoK_range_custom_wave_imag_b);
+				imag[2] = parseInt(this.pianoK_range_custom_wave_imag_c);
+				imag[3] = parseInt(this.pianoK_range_custom_wave_imag_d);
+				imag[4] = parseInt(this.pianoK_range_custom_wave_imag_e);
+				imag[5] = parseInt(this.pianoK_range_custom_wave_imag_f);
+
+				var periodic_wave = this.WA_ctx.createPeriodicWave(real, imag, {disableNormalization: false});
+
+				oscillator.setPeriodicWave(periodic_wave);
+			}
+			else {
+				oscillator.type = waveform_type;
+			}
+			
 			oscillator.detune.value = detune;
 			oscillator.frequency.value = frequency;
 			// oscillator.connect(this.WA_ctx.destination);
